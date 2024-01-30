@@ -73,6 +73,10 @@ test("theme button should toggle styles", () => {
 test("hidden button should toggle hidden content", () => {
   // TODO: change the expect to actually test something 😉
   render(<App />);
+  expect(
+    screen.queryByText("this content is hidden by default")
+  ).not.toBeInTheDocument();
+
   fireEvent.click(screen.getByRole("button", { name: /hidden content/i }));
   expect(
     screen.getByText("this content is hidden by default")
